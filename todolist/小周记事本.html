@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>小周记事本</title>
+    <link rel="stylesheet" href="./xiaozhou.css">
+</head>
+
+<body>
+
+    <section class="todoapp">
+
+        <header class="header">
+            <h1>小周记事本</h1>
+        </header>
+
+
+        <div class="container">
+            <input  autofocus='autofocus' v-model="inputValue" @focus="focus" @keyup.enter="change" autocomplete="off" placeholder="请输入任务"
+                class='new-todo'>
+            <!-- 列表区域 -->
+            <section class="main">
+                <ul class="todo-list">
+                    <li class="todo" v-for="(item,index) in list">
+                        
+                        <div class="view">
+                            <span class="index">{{index+1}}.</span>
+                            <label>{{item}}</label>
+                            <button class='destroy' @click="remove(index)">×</button>
+                        </div>
+
+                    </li>
+
+                </ul>
+            </section>
+
+            <!-- 统计和清空 -->
+            <footer class="footer">
+                <span class="left" v-if="list.length!=0">{{list.length}} items left</span>
+                <span class='right' @click="clear" v-if="list.length!=0">Clear</span>
+            </footer>
+            <div class="shaw-1"></div>
+            <div class="shaw-2"></div>
+            <div class="shaw-3"></div>
+        </div>
+
+        <!-- 底部 -->
+        <footer class="info">
+            <img src="../image/bg.jpg"
+                alt="" width="460px" height="5px">
+        </footer>
+
+    </section>
+    <script>
+        let app = new Vue({
+            el:'.todoapp',
+            data:{
+                list:["写代码","吃饭饭","睡觉觉"],
+                inputValue:"小周要好好学习 天天向上"
+            },
+            methods:{
+                change:function(){
+                    // alert(this.inputValue)
+                    this.list.push(this.inputValue)
+                    this.inputValue = '';
+                },
+                focus:function(){
+                    this.inputValue = '';
+                },
+                remove:function(index){
+                    // console.log(index)
+                    this.list.splice(index,1);
+                },
+                clear:function(){
+                    this.list = [];
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

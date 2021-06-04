@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 600px;
+            margin: 100px auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: normal;
+            font-family: "华文行楷";
+            color: rgb(166, 202, 111);
+        }
+
+        .searchwrapper {
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+            margin-top: 50px;
+            margin-bottom: 35px;
+        }
+
+        input {
+            float: left;
+            width: 88%;
+            height: 32px;
+            padding-left: 15px;
+            border: 1px solid rgb(97, 171, 221);
+            outline: none;
+            /* border: none; */
+            box-sizing: border-box;
+        }
+
+        input::placeholder {
+            color: #aaa;
+            font-size: 16px;
+        }
+
+        .searchwrapper button {
+            height: 32px;
+            width: 12%;
+            float: left;
+            border: none;
+            box-sizing: border-box;
+            outline: 1px solid rgb(97, 171, 221);
+            border: 1px solid rgb(97, 171, 221);
+            background: rgb(97, 171, 221);
+            cursor: pointer;
+        }
+
+        .searchwrapper button:hover {
+            box-shadow: 0 0 8px skyblue;
+        }
+
+        .hotcity {
+            float: left;
+        }
+
+        a {
+            text-decoration: none;
+            padding: 0 5px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .weatherlist {
+            width: 660px;
+            display: flex;
+            margin-left: -30px;
+            justify-content: space-around;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            text-align: center;
+            position: relative;
+        }
+
+        ul li span {
+            position: absolute;
+            width: 1px;
+            height: 70px;
+            background-color: #bbb;
+            right: -10px;
+            margin-top: -70px;
+        }
+
+        ul li:last-child span {
+            display: none;
+        }
+
+        .p1 {
+            color: rgb(166, 202, 111);
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .p2 {
+            color: rgb(166, 202, 111);
+            font-size: 12px;
+            margin: 20px 0;
+        }
+
+        .p3 {
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="search">
+            <h1>天气查询</h1>
+            <div class="searchwrapper"> 
+                <input type="text" class="input-text" @focus="blur" v-model="city" @keyup.enter="search" placeholder="请输入要查询的天气">
+                <button>搜索</button>
+                <div class="hotcity">
+                    <a href="javascript:;" @click='changeCity("北京")'>北京</a>
+                    <a href="javascript:;" @click='changeCity("成都 ")'>成都</a>
+                    <a href="javascript:;" @click='changeCity("上海")'>上海</a>
+                    <a href="javascript:;" @click='changeCity("深圳")'>深圳</a>
+                 </div>
+            </div>
+
+        </div>
+
+        <ul class="weatherlist">
+            <li v-for='item in List'>
+                <p class="p1">{{item.type}}</p>
+                <p class="p2">{{item.low}}~{{item.high}}</p>
+                <p class="p3">{{item.date}}</p>
+                <span></span>
+            </li>
+        </ul>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="./main.js">
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.todoapp {
+    width: 460px;
+    margin: 100px auto;
+    background: rgb(218, 209, 209);
+    overflow: hidden;
+    position: relative;
+    border-radius: 5px 5px 0 0;
+    
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+}
+
+.header h1 {
+    text-align: center;
+    font-weight: normal;
+    font-family: '华文楷体';
+    color: rgb(212, 115, 115);
+    margin-bottom: 46px;
+    margin-top: 10px;
+    font-size: 32px;
+}
+
+/* .container区域 设置主体宽度 */
+
+.container {
+    width: 92%;
+    border-top: 1px solid rgba(226, 226, 226, 0.8);
+    margin-left: 4%;
+    border-radius: 3px;
+}
+
+.new-todo {
+    width: 100%;
+    height: 32px;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+    border-bottom: 1px solid rgb(219, 219, 219);
+    box-sizing: border-box;
+}
+
+.new-todo::placeholder {
+    color: #ddd;
+}
+
+.footer {
+    background: #fff;
+    overflow: hidden;
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    border-bottom: 1px solid #ccc;
+}
+
+.footer span {
+    font-size: 12px;
+    color: #ccc;
+}
+
+.left {
+    float: left;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.right {
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* .shaw-1 .shaw-2 设置叠纸效果。  为了叠纸效果 container没有设置背景颜色 （因为container没有具体高度，如果设置背景，子元素一撑开 默认100%的宽度都是背景色，
+看不出层层递减的效果，故背景颜色由container内各元素分别设置） */
+
+.shaw-1 {
+    height: 2px;
+    width: 99%;
+    margin-left: 0.5%;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 1px 1px 0.5px #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.shaw-2 {
+    height: 2px;
+    width: 98%;
+    margin-left: 1%;
+    background: #fff;
+    box-shadow: 1px 1px 0.5px #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+img {
+    margin-top: 25px;
+    display: block;
+}
+
+/* 核心列表区域 */
+
+ul {
+    list-style: none;
+}
+
+.todo-list li {
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    color: #aaa;
+    font-size: 14px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* css父元素控制子元素的显示 */
+
+.todo-list li:hover :nth-child(3) {
+    display: block;
+}
+
+.destroy {
+    display: none;
+    color: rgb(224, 137, 137);
+    font-size: 14px;
+    outline: none;
+    border: none;
+    float: right;
+    margin-top: 7px;
+    margin-right: 20px;
+    background: #fff;
+    cursor: pointer;
+}
